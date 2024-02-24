@@ -1,10 +1,12 @@
 const mongoose = require("mongoose");
-const TheSchemaTable = require("./models/TheSchemaTable");
-require("dotenv").config();
-mongoose.connect(process.env.URI)
-.then(()=>{
+const TheSchemaUserTable = require("./models/TheSecmaUserTables");
 
-  console.log("You connected to mongoose");
+
+
+
+mongoose.connect("mongodb+srv://root:NewYork4151@cluster0.mmhyyv3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+.then(()=>{
+  console.log("Mongoose is runing");
 
 })
 .catch(error=>{
@@ -15,30 +17,30 @@ console.log(error);
 
 
 
-const INSERT_INTO = [
-{
-fullname:"Tim Kim",
-email:"fgdfgdfg@gmail.com",
-speciesName:"fbfgbdgb",
-post:"Hello",
-image:"teghrthrth"
+const InsertIntoSeeds = [
 
+{
+fname:"Tim",
+lname:"Kim",
+email:"hudsonriver4151@gmail.com",
+phone:"(415) 583-1165",
+image:"trkhrt.png"
 
 }
-
 
 
 ]
 
 
-TheSchemaTable.insertMany(INSERT_INTO)
-.then((res)=>{
 
-    console.log(res);
-  
-  })
-  .catch(error=>{
-  
-  console.log(error);
-  
-  });
+const INSERTINTO = TheSchemaUserTable.insertMany(InsertIntoSeeds)
+.then((res)=>{
+console.log(res);
+console.log("All is well");
+
+})
+.catch(error=>{
+
+console.log(error);
+
+});
